@@ -5,6 +5,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
 {
     public interface INode{}
 
+    #region element
     public class ConfigElementNodeInfo : INode
     {
         public int id;
@@ -16,6 +17,9 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
         public string refrenceConfigName;
         public int refrenceConfigId;            
     }
+    #endregion
+
+    #region struct
     public class ConfigStructInfo : INode
     {
         public int Id;
@@ -23,6 +27,9 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
         public string desc;
         public List<ConfigElementNodeInfo> nodeInfoList;
     }
+    #endregion
+
+    #region list
     public class ConfigNodeListInfo : INode
     {
         public int type;
@@ -33,8 +40,12 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
         public int type;
         public ConfigStructInfo structInfo;
     }
+    #endregion
+
+    #region config
     public class ExcelConfigInfo : XmlConfigBase
     {
         public List<INode> nodeInfoList;
     }
+    #endregion
 }
