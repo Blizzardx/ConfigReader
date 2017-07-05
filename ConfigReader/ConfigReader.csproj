@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\Common\FileUtils.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\ExcelConfigInfo.cs" />
     <Compile Include="Framework\Reflection\ReflectionManager.cs" />
     <Compile Include="Framework\Common\Singleton.cs" />
     <Compile Include="Framework\Common\VaildUtil.cs" />
