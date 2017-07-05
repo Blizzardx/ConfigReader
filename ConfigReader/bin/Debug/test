@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BehaviourTreePlanData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <m_PlanList>
+    <BTNodeData Name="11" Type="BTRoot" Desc="" Id="0">
+      <m_ParamList />
+      <m_ChildList>
+        <BTNodeData Name="" Type="BTSelect" Desc="" Id="0">
+          <m_ParamList />
+          <m_ChildList>
+            <BTNodeData Name="" Type="BTCondition" Desc="" Id="0">
+              <m_ParamList>
+                <BTNodeParamData ParamType="I32" Name="ConditonId" Value="12" />
+              </m_ParamList>
+              <m_ChildList />
+            </BTNodeData>
+            <BTNodeData Name="" Type="BTActionFire" Desc="" Id="0">
+              <m_ParamList />
+              <m_ChildList />
+            </BTNodeData>
+            <BTNodeData Name="" Type="BTSequence" Desc="" Id="0">
+              <m_ParamList />
+              <m_ChildList />
+            </BTNodeData>
+          </m_ChildList>
+        </BTNodeData>
+        <BTNodeData Name="" Type="BTSequence" Desc="" Id="0">
+          <m_ParamList />
+          <m_ChildList />
+        </BTNodeData>
+      </m_ChildList>
+    </BTNodeData>
+    <BTNodeData Name="123456" Type="BTRoot" Desc="" Id="2">
+      <m_ParamList />
+      <m_ChildList>
+        <BTNodeData Name="" Type="BTSelect" Desc="" Id="0">
+          <m_ParamList />
+          <m_ChildList />
+        </BTNodeData>
+      </m_ChildList>
+    </BTNodeData>
+  </m_PlanList>
+</BehaviourTreePlanData>

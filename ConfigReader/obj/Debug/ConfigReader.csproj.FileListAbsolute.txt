@@ -1,0 +1,12 @@
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\ExcelImproter.exe.config
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.exe
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.pdb
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ConfigReader.csprojResolveAssemblyReference.cache
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Form1.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Properties.Resources.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ConfigReader.csproj.GenerateResource.Cache
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\ExcelImproter.exe
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\ExcelImproter.pdb
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\Excel.dll
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\bin\Debug\Excel.pdb

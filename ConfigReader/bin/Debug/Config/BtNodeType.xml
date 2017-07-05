@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BTNodeTypeConfigData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <m_TypeInfoList>
+    <BTNodeTypeInfoData IsRoot="true" Name="BTRoot" IsLimitChildCount="false" LimitChildCount="0" IsLimitChildType="false">
+      <m_OptionChildTypeList />
+      <m_ParamList />
+    </BTNodeTypeInfoData>
+    <BTNodeTypeInfoData IsRoot="false" Name="BTSequence" IsLimitChildCount="false" LimitChildCount="0" IsLimitChildType="false">
+      <m_OptionChildTypeList />
+      <m_ParamList />
+    </BTNodeTypeInfoData>
+    <BTNodeTypeInfoData IsRoot="false" Name="BTSelect" IsLimitChildCount="false" LimitChildCount="0" IsLimitChildType="false">
+      <m_OptionChildTypeList />
+      <m_ParamList />
+    </BTNodeTypeInfoData>
+    <BTNodeTypeInfoData IsRoot="false" Name="BTCondition" IsLimitChildCount="true" LimitChildCount="0" IsLimitChildType="false">
+      <m_OptionChildTypeList />
+      <m_ParamList>
+        <BTNodeTypeParamterData ParamType="I32" Name="ConditonId" />
+      </m_ParamList>
+    </BTNodeTypeInfoData>
+    <BTNodeTypeInfoData IsRoot="false" Name="BTActionFire" IsLimitChildCount="true" LimitChildCount="0" IsLimitChildType="false" />
+  </m_TypeInfoList>
+</BTNodeTypeConfigData>
