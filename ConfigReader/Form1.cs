@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExcelImproter.Framework.ConfigImporter.Excel.Editor;
+using System;
 using System.Windows.Forms;
 
 namespace ExcelImproter
@@ -20,6 +21,21 @@ namespace ExcelImproter
             this.richTextBox1.Focus();
             this.richTextBox1.Select(this.richTextBox1.Text.Length, 0);
             this.richTextBox1.ScrollToCaret();
+        }
+
+        private void excelEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCollection coll = Application.OpenForms;
+            foreach (Form form in coll)
+            {
+                if (form is ExcelConfigInfoEditor)
+                {
+                    form.Focus();
+                    return;
+                }
+            }
+            ExcelConfigInfoEditor aiForm = new ExcelConfigInfoEditor();
+            aiForm.Show();
         }
     }
 }

@@ -32,6 +32,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -50,11 +53,28 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(968, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(968, 25);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // editorToolStripMenuItem
+            // 
+            this.editorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excelEditorToolStripMenuItem});
+            this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
+            this.editorToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
+            this.editorToolStripMenuItem.Text = "Editor";
+            // 
+            // excelEditorToolStripMenuItem
+            // 
+            this.excelEditorToolStripMenuItem.Name = "excelEditorToolStripMenuItem";
+            this.excelEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excelEditorToolStripMenuItem.Text = "ExcelEditor";
+            this.excelEditorToolStripMenuItem.Click += new System.EventHandler(this.excelEditorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -66,6 +86,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,6 +97,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelEditorToolStripMenuItem;
     }
 }
 
