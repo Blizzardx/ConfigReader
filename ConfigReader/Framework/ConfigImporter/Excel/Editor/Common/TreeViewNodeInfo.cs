@@ -9,9 +9,9 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
     class TreeViewNodeInfo : TreeNode
     {
         private Dictionary<Type, string> m_TypeToNameMap;
-        private INode m_Data;
+        private NodeBase m_Data;
 
-        public TreeViewNodeInfo(INode data)
+        public TreeViewNodeInfo(NodeBase data)
         {
             m_TypeToNameMap=new Dictionary<Type, string>();
             m_TypeToNameMap.Add(typeof(ConfigElementNodeInfo), "元素");
@@ -22,19 +22,37 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             SetData(data);
         }
 
-        public void SetData(INode data)
+        public void SetData(NodeBase data)
         {
             m_Data = data;
             Text = GetDisplayName();
         }
-        public INode GetData()
+        public NodeBase GetData()
         {
             return m_Data;
         }
 
         public string GetDisplayName()
         {
-            return m_TypeToNameMap[m_Data.GetType()];
+            string suffix = string.Empty;
+
+            if (m_Data is ConfigElementNodeInfo)
+            {
+                var data = m_Data as ConfigElementNodeInfo;
+                suffix = ":" + data.name;
+            }
+            if (m_Data is ConfigStructInfo)
+            {
+                var data = m_Data as ConfigStructInfo;
+                suffix = ":" + data.name;
+            }
+            if (m_Data is ConfigNodeListInfo)
+            {
+            }
+            if (m_Data is ConfigStructListInfo)
+            {
+            }
+            return m_TypeToNameMap[m_Data.GetType()] + suffix;
         }
         public string GetDisplayTypeName()
         {

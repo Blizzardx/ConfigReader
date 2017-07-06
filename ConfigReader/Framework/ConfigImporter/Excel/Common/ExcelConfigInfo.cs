@@ -1,9 +1,11 @@
 ﻿using Common.Config;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace ExcelImproter.Framework.ConfigImporter.Excel
 {
-    public interface INode{}
+    public class NodeBase{}
+
     public enum DataType
     {
         Bool,
@@ -20,47 +22,66 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
         Letter,
         Brackets,
     }
+
     #region element
-    public class ConfigElementNodeInfo : INode
+    public class ConfigElementNodeInfo : NodeBase
     {
+        [XmlAttribute("id")]
         public int id;
+        [XmlAttribute("name")]
         public string name;
+        [XmlAttribute("desc")]
         public string desc;
+        [XmlAttribute("type")]
         public DataType type;
+        [XmlAttribute("rangeMin")]
         public string rangeMin;
+        [XmlAttribute("rangeMax")]
         public string rangeMax;
+        [XmlAttribute("refrenceConfigName")]
         public string refrenceConfigName;
-        public int refrenceConfigId;            
+        [XmlAttribute("refrenceConfigId")]
+        public int refrenceConfigId;
     }
     #endregion
 
     #region struct
-    public class ConfigStructInfo : INode
+    public class ConfigStructInfo : NodeBase
     {
+        [XmlAttribute("id")]
         public int id;
+        [XmlAttribute("name")]
         public string name;
+        [XmlAttribute("desc")]
         public string desc;
+        [XmlElement("nodeInfoList")]
         public List<ConfigElementNodeInfo> nodeInfoList;
     }
     #endregion
 
     #region list
-    public class ConfigNodeListInfo : INode
+    public class ConfigNodeListInfo : NodeBase
     {
+        [XmlAttribute("types")]
         public ListSplitType type;
+        [XmlElement("nodeInfo")]
         public ConfigElementNodeInfo nodeInfo;
     }
-    public class ConfigStructListInfo : INode
+    public class ConfigStructListInfo : NodeBase
     {
+        [XmlAttribute("types")]
         public ListSplitType type;
+        [XmlElement("structInfo")]
         public ConfigStructInfo structInfo;
     }
     #endregion
 
     #region config
+    [XmlRoot("root")]
     public class ExcelConfigInfo : XmlConfigBase
     {
-        public List<INode> nodeInfoList;
+        [XmlElement("nodeInfoList")]
+        public List<NodeBase> nodeInfoList;
     }
     #endregion
 }

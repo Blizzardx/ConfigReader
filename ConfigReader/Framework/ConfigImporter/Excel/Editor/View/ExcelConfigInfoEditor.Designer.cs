@@ -33,8 +33,9 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.treeView = new System.Windows.Forms.TreeView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.展开全部子节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加根节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.展开全部子节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxNodeType = new System.Windows.Forms.GroupBox();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -43,7 +44,9 @@
             this.groupBoxNodeDetail = new System.Windows.Forms.GroupBox();
             this.comboBoxNodeTypeList = new System.Windows.Forms.ComboBox();
             this.labelParamType = new System.Windows.Forms.Label();
-            this.添加根节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.上移ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.下移ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBoxNodeType.SuspendLayout();
             this.SuspendLayout();
@@ -82,17 +85,12 @@
             this.AddNodeToolStripMenuItem,
             this.添加根节点ToolStripMenuItem,
             this.展开全部子节点ToolStripMenuItem,
-            this.DeleteNodeToolStripMenuItem});
+            this.DeleteNodeToolStripMenuItem,
+            this.上移ToolStripMenuItem,
+            this.下移ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 136);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // 展开全部子节点ToolStripMenuItem
-            // 
-            this.展开全部子节点ToolStripMenuItem.Name = "展开全部子节点ToolStripMenuItem";
-            this.展开全部子节点ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.展开全部子节点ToolStripMenuItem.Text = "展开全部子节点";
-            this.展开全部子节点ToolStripMenuItem.Click += new System.EventHandler(this.展开全部子节点ToolStripMenuItem_Click);
             // 
             // AddNodeToolStripMenuItem
             // 
@@ -100,6 +98,20 @@
             this.AddNodeToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.AddNodeToolStripMenuItem.Text = "添加节点";
             this.AddNodeToolStripMenuItem.Click += new System.EventHandler(this.AddNodeToolStripMenuItem_Click);
+            // 
+            // 添加根节点ToolStripMenuItem
+            // 
+            this.添加根节点ToolStripMenuItem.Name = "添加根节点ToolStripMenuItem";
+            this.添加根节点ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.添加根节点ToolStripMenuItem.Text = "添加根节点";
+            this.添加根节点ToolStripMenuItem.Click += new System.EventHandler(this.添加根节点ToolStripMenuItem_Click);
+            // 
+            // 展开全部子节点ToolStripMenuItem
+            // 
+            this.展开全部子节点ToolStripMenuItem.Name = "展开全部子节点ToolStripMenuItem";
+            this.展开全部子节点ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.展开全部子节点ToolStripMenuItem.Text = "展开全部子节点";
+            this.展开全部子节点ToolStripMenuItem.Click += new System.EventHandler(this.展开全部子节点ToolStripMenuItem_Click);
             // 
             // DeleteNodeToolStripMenuItem
             // 
@@ -179,18 +191,36 @@
             this.labelParamType.TabIndex = 72;
             this.labelParamType.Text = "元素类型";
             // 
-            // 添加根节点ToolStripMenuItem
+            // 上移ToolStripMenuItem
             // 
-            this.添加根节点ToolStripMenuItem.Name = "添加根节点ToolStripMenuItem";
-            this.添加根节点ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.添加根节点ToolStripMenuItem.Text = "添加根节点";
-            this.添加根节点ToolStripMenuItem.Click += new System.EventHandler(this.添加根节点ToolStripMenuItem_Click);
+            this.上移ToolStripMenuItem.Name = "上移ToolStripMenuItem";
+            this.上移ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.上移ToolStripMenuItem.Text = "上移";
+            this.上移ToolStripMenuItem.Click += new System.EventHandler(this.上移ToolStripMenuItem_Click);
+            // 
+            // 下移ToolStripMenuItem
+            // 
+            this.下移ToolStripMenuItem.Name = "下移ToolStripMenuItem";
+            this.下移ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.下移ToolStripMenuItem.Text = "下移";
+            this.下移ToolStripMenuItem.Click += new System.EventHandler(this.下移ToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(406, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 36);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "刷新id";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExcelConfigInfoEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1573, 685);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxNodeType);
             this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.buttonSave);
@@ -220,5 +250,8 @@
         private System.Windows.Forms.Button buttonDone;
         private System.Windows.Forms.GroupBox groupBoxNodeDetail;
         private System.Windows.Forms.ToolStripMenuItem 添加根节点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 上移ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 下移ToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

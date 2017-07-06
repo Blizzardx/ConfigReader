@@ -28,3 +28,7 @@ E:\Project\ConfigReader\ConfigReader\obj\Debug\ExcelImproter.exe
 E:\Project\ConfigReader\ConfigReader\obj\Debug\ExcelImproter.pdb
 E:\Project\ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.ListInfoPanel_Struct.resources
 E:\Project\ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.ListInfoPanel_Node.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.ListInfoPanel_Node.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.ListInfoPanel_Struct.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.NodeInfoPanel.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.StructInfoPanel.resources

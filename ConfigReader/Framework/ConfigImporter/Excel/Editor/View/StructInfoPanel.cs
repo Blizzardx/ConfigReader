@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
@@ -33,16 +27,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             textBoxNodeName.Text = m_Data.name;
         }
         public string CheckData()
-        {
-            if (string.IsNullOrEmpty(textBoxNodeId.Text))
-            {
-                return "id can't be null";
-            }
-            int id = 0;
-            if (!int.TryParse(textBoxNodeId.Text, out id))
-            {
-                return "id must be int";
-            }
+        {           
             if (string.IsNullOrEmpty(textBoxNodeDesc.Text))
             {
                 return "desc can't be null";
@@ -51,13 +36,12 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             {
                 return "name can't be null";
             }
-            m_Data.id = id;
             m_Data.desc = textBoxNodeDesc.Text;
             m_Data.name = textBoxNodeName.Text;
             return null;
         }
 
-        public INode GetData()
+        public NodeBase GetData()
         {
             return m_Data;
         }

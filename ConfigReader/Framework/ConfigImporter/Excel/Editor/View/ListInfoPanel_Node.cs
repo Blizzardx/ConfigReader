@@ -18,7 +18,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             "|分割",
             "()分割",
         };
-        public INode GetData()
+        public NodeBase GetData()
         {
             return m_Data;
         }

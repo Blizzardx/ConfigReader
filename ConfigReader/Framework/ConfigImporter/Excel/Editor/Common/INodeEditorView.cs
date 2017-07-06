@@ -7,7 +7,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
 {
     interface INodeEditorView
     {
-        INode GetData();
+        NodeBase GetData();
         string CheckData();
 
     }
