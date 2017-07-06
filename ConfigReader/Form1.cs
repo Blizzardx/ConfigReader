@@ -1,5 +1,9 @@
-﻿using ExcelImproter.Framework.ConfigImporter.Excel.Editor;
+﻿using Common.Config;
+using ExcelImproter.Framework.ConfigImporter.CodeGenerator;
+using ExcelImproter.Framework.ConfigImporter.Excel;
+using ExcelImproter.Framework.ConfigImporter.Excel.Editor;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ExcelImproter
@@ -36,6 +40,49 @@ namespace ExcelImproter
             }
             ExcelConfigInfoEditor aiForm = new ExcelConfigInfoEditor();
             aiForm.Show();
+        }
+
+        private void codeGeneratorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void genCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var path = OpenFile();
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+            var content = System.IO.File.ReadAllText(path);
+            var config = XmlConfigBase.DeSerialize<ExcelConfigInfo>(content, getAllTypes().ToArray());
+
+            System.IO.FileInfo tmpInfo = new System.IO.FileInfo(path);
+            ConfigClassDefineGenerator tool = new ConfigClassDefineGenerator();
+            var classFile = tool.GenClassDefine(tmpInfo.Name.Replace('.','_'), config);
+            System.IO.File.WriteAllText(path.Replace(".xml", ".cs"), classFile);
+        }
+        private string OpenFile()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Title = "请选择文件";
+            fileDialog.Filter = "所有文件(*.*)|*.*";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                return fileDialog.FileName;
+            }
+            return null;
+        }
+        List<Type> getAllTypes()
+        {
+            List<Type> typelist = new List<Type>() { typeof(ExcelConfigInfo) };
+            var list = ReflectionManager.Instance.GetTypeByBase(typeof(NodeBase));
+            if (null != list)
+            {
+                typelist.AddRange(list);
+            }
+            return typelist;
         }
     }
 }

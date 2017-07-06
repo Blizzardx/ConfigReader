@@ -34,6 +34,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excelEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.codeGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +56,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editorToolStripMenuItem});
+            this.editorToolStripMenuItem,
+            this.codeGeneratorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(968, 25);
@@ -75,6 +78,22 @@
             this.excelEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.excelEditorToolStripMenuItem.Text = "ExcelEditor";
             this.excelEditorToolStripMenuItem.Click += new System.EventHandler(this.excelEditorToolStripMenuItem_Click);
+            // 
+            // codeGeneratorToolStripMenuItem
+            // 
+            this.codeGeneratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.genCodeToolStripMenuItem});
+            this.codeGeneratorToolStripMenuItem.Name = "codeGeneratorToolStripMenuItem";
+            this.codeGeneratorToolStripMenuItem.Size = new System.Drawing.Size(110, 21);
+            this.codeGeneratorToolStripMenuItem.Text = "CodeGenerator";
+            this.codeGeneratorToolStripMenuItem.Click += new System.EventHandler(this.codeGeneratorToolStripMenuItem_Click);
+            // 
+            // genCodeToolStripMenuItem
+            // 
+            this.genCodeToolStripMenuItem.Name = "genCodeToolStripMenuItem";
+            this.genCodeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.genCodeToolStripMenuItem.Text = "GenCode";
+            this.genCodeToolStripMenuItem.Click += new System.EventHandler(this.genCodeToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -99,6 +118,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excelEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem codeGeneratorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genCodeToolStripMenuItem;
     }
 }
 
