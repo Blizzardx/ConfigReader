@@ -95,7 +95,8 @@
             this.Controls.Add(this.labelTypeName);
             this.Controls.Add(this.textBoxNodeId);
             this.Name = "StructInfoPanel";
-            this.Size = new System.Drawing.Size(503, 539);
+            this.Size = new System.Drawing.Size(503, 336);
+            this.Load += new System.EventHandler(this.StructInfoPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

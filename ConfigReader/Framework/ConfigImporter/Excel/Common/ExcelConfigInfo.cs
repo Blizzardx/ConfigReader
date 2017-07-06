@@ -4,14 +4,29 @@ using System.Collections.Generic;
 namespace ExcelImproter.Framework.ConfigImporter.Excel
 {
     public interface INode{}
+    public enum DataType
+    {
+        Bool,
+        Byte,
+        Double,
+        I16,
+        I32,
+        I64,
+        String,
+    }
 
+    public enum ListSplitType
+    {
+        Letter,
+        Brackets,
+    }
     #region element
     public class ConfigElementNodeInfo : INode
     {
         public int id;
         public string name;
         public string desc;
-        public string type;
+        public DataType type;
         public string rangeMin;
         public string rangeMax;
         public string refrenceConfigName;
@@ -22,7 +37,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
     #region struct
     public class ConfigStructInfo : INode
     {
-        public int Id;
+        public int id;
         public string name;
         public string desc;
         public List<ConfigElementNodeInfo> nodeInfoList;
@@ -32,12 +47,12 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
     #region list
     public class ConfigNodeListInfo : INode
     {
-        public int type;
+        public ListSplitType type;
         public ConfigElementNodeInfo nodeInfo;
     }
     public class ConfigStructListInfo : INode
     {
-        public int type;
+        public ListSplitType type;
         public ConfigStructInfo structInfo;
     }
     #endregion

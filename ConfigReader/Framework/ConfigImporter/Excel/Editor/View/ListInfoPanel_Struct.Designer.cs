@@ -1,6 +1,6 @@
 ﻿namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
 {
-    partial class ListInfoPanel
+    partial class ListInfoPanel_Struct
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -49,14 +49,14 @@
             this.labelParamType.TabIndex = 66;
             this.labelParamType.Text = "数组类型";
             // 
-            // ListInfoPanel
+            // ListInfoPanel_Struct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBoxParamType);
             this.Controls.Add(this.labelParamType);
-            this.Name = "ListInfoPanel";
-            this.Size = new System.Drawing.Size(503, 539);
+            this.Name = "ListInfoPanel_Struct";
+            this.Size = new System.Drawing.Size(503, 336);
             this.ResumeLayout(false);
             this.PerformLayout();
 
