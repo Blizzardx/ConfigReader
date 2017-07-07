@@ -86,7 +86,34 @@ namespace Util
         }
 
         #endregion
+        #region float
 
+        public static bool TryConvertDouble(string s, out double n, double min, double max)
+        {
+            float a;
+            n = 0;
+            if (!float.TryParse(s, out a))
+            {
+                return false;
+            }
+            if (a < min)
+            {
+                return false;
+            }
+            if (a > max)
+            {
+                return false;
+            }
+            n = a;
+            return true;
+        }
+
+        public static bool TryConvert(string s, out double n, double min = double.MinValue, double max = double.MaxValue)
+        {
+            return TryConvertDouble(s, out n, min, max);
+        }
+
+        #endregion
         #region short
 
         public static bool TryConvertShort(string s, out short n, short min = short.MinValue, short max = short.MaxValue)
@@ -267,6 +294,20 @@ namespace Util
             return list;
         }
 
+        public static bool TryConvert(string s, int splitType,out List<string> result,out int skipCount)
+        {
+            skipCount = 0;
+            result = null;
+            try
+            {
+                result = SplitToList_string(s);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
         #endregion
 
         #region other
@@ -424,5 +465,6 @@ namespace Util
         }
 
         #endregion
+
     }
 }

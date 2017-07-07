@@ -46,7 +46,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 case DataType.I64:
                     return "long.MinValue";
                 case DataType.String:
-                    return "";
+                    return "null";
             }
             return null;
         }
@@ -67,7 +67,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 case DataType.I64:
                     return "long.MaxValue";
                 case DataType.String:
-                    return "";
+                    return "null";
             }
             return null;
         }

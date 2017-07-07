@@ -1,4 +1,6 @@
 ﻿using Util;
+using System.Collections.Generic;
+
 public class {ConfigName}Parser
 {
     private string m_strErrorMsg;
@@ -23,9 +25,12 @@ public class {ConfigName}Parser
     }
     private {className} ParserLine(int lineIndex, string[] values)
     {
+		int tmpIndexOffset = 0;
+		int skipCount = 0;
+
 		{className} {lineElement} = new {className}();
 
-        {ParserMember}
+{ParserMember}
 
 		return {lineElement};
     }

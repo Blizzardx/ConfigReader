@@ -1,18 +1,19 @@
 ﻿			List<string> {sourceList} = null;
-			if (!VaildUtil.TryConvert(values[{index}], out {sourceList}))
+			if (!VaildUtil.TryConvert(values[{index} + tmpIndexOffset], {splitType},out {sourceList} ,out skipCount))
             {
                 m_strErrorMsg = string.Format("{3} {0}.xlsx [{1},{2}]数组解析读取出现错误", "{configName}", lineIndex,{index}+1,"{desc}");
-	            return;
+	            return null;
             }
 
-			{listMembername} = new {className}[{sourceList}.Count];
+			var {listMembername} = new {listStructName}[{sourceList}.Count];
 			
 			for(int i=0;i<{structMemberCount};++i)
 			{
 				int startIndex = i * {structMemberCount};
 
-				var {subElement} = new {className}();	
+				var {subElement} = new {listStructName}();	
 				{listMembername}[i] = {subElement};				
 
-				{ParserListMember}
+{ParserListMember}
 			}
+			tmpIndexOffset += skipCount;

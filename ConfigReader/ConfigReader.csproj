@@ -56,9 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\Common\FileUtils.cs" />
-    <Compile Include="Framework\ConfigImporter\CodeGenerator\CSharp\CommonTool.cs" />
-    <Compile Include="Framework\ConfigImporter\CodeGenerator\CSharp\ConfigClassDefineGenerator.cs" />
-    <Compile Include="Framework\ConfigImporter\CodeGenerator\CSharp\ConfigParserGenerator.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\CommonTool.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\ConfigClassDefineGenerator.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\ConfigParserGenerator.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\Common\ExcelConfigInfo.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\Editor\View\ExcelConfigInfoEditor.cs">
       <SubType>Form</SubType>
@@ -104,6 +104,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Plugin\Xml\XmlConfigBase.cs" />
+    <Compile Include="Project\test.cs" />
+    <Compile Include="Project\testparser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Plugin\Thrift\Collections\TCollections.cs" />
     <Compile Include="Plugin\Thrift\Collections\THashSet.cs" />
@@ -186,14 +188,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpClassDefineTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpClassMemberDefineTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserClassTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserListStructTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserListNodeTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserListNodeMemberTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserListStructMemberTemplate.txt" />
-    <Content Include="Framework\ConfigImporter\CodeGenerator\CSharp\Resource\CSharpParserNodeMemberTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpClassDefineTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpClassMemberDefineTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserClassTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListStructTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListNodeTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListNodeMemberTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListStructMemberTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserNodeMemberTemplate.txt" />
+    <Content Include="Project\test.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

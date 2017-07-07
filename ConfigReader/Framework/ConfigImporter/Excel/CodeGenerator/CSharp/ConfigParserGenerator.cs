@@ -107,11 +107,15 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         }
         private string GenParserClass_Struct(ConfigStructInfo node)
         {
-            string structType = m_strConfigName + "." + node.name;
+            string structType = m_strConfigName + "." + node.name + "Class";
             string structMemberName = m_strLineElementMemberName + "." + node.name;
 
             StringBuilder res = new StringBuilder();
+            res.Append('\t');
+            res.Append('\t');
+            res.Append('\t');
             res.Append(structMemberName + " = new " + structType + "();");
+            res.Append('\n');
 
             for (int i = 0; i < node.nodeInfoList.Count; ++i)
             {
@@ -121,6 +125,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         }
         private string GenParserClass_NodeLlist(ConfigNodeListInfo node)
         {
+            string sourceListName = node.nodeInfo.name + "SourceList";
+            string listName = node.nodeInfo.name + "List";
+
             StringBuilder memberParser = new StringBuilder(m_strParserListNodeMemberTemplate);
             string rangeMin = node.nodeInfo.rangeMin;
             string rangeMax = node.nodeInfo.rangeMax;
@@ -133,6 +140,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             {
                 rangeMax = CommonTool.GetMaxRangeByDataType(node.nodeInfo.type);
             }
+            memberParser = memberParser.Replace("{sourceList}", sourceListName);
             memberParser = memberParser.Replace("{min}", rangeMin);
             memberParser = memberParser.Replace("{max}", rangeMax);
             memberParser = memberParser.Replace("{configName}", m_strConfigName);
@@ -143,17 +151,17 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
 
             StringBuilder res = new StringBuilder(m_strParserListNodeTemplate);
 
-            string sourceListName = node.nodeInfo.name + "SourceList";
-            string listName = node.nodeInfo.name + "List";
-
-            res = res.Replace("{ParserListMember}", memberParser.ToString());
+            
             res = res.Replace("{sourceList}", sourceListName);
             res = res.Replace("{listMembername}", listName);
             res = res.Replace("{index}", m_iIndex.ToString());
             res = res.Replace("{configName}", m_strConfigName);
-            res = res.Replace("{classname}", CommonTool.GetType(node.nodeInfo.type));
+            res = res.Replace("{listStructName}", CommonTool.GetType(node.nodeInfo.type));
+            res = res.Replace("{splitType}", ((int)node.type).ToString());
+
+            res = res.Replace("{ParserListMember}", memberParser.ToString());
             res.Append('\n');
-            
+
             ++m_iIndex;
 
             return res.ToString();
@@ -182,13 +190,14 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 }
 
                 StringBuilder lineElement = new StringBuilder(m_strParserListStructMemberTemplate);
-                lineElement = lineElement.Replace("{membername}", structLineElement + "." + tmpNode.name);
-                lineElement = lineElement.Replace("{subIndex}", i.ToString());
+                lineElement = lineElement.Replace("{index}", i.ToString());
                 lineElement = lineElement.Replace("{min}", rangeMin);
                 lineElement = lineElement.Replace("{max}", rangeMax);
                 lineElement = lineElement.Replace("{configName}", m_strConfigName);
                 lineElement = lineElement.Replace("{classname}", CommonTool.GetType(tmpNode.type));
                 lineElement = lineElement.Replace("{desc}", tmpNode.desc);
+
+                lineElement = lineElement.Replace("{membername}", structLineElement + "." + tmpNode.name);
                 lineElement.Append('\n');
 
                 memberParser.Append(lineElement);
@@ -197,20 +206,22 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             StringBuilder res = new StringBuilder(m_strParserListStructTemplate);
 
             res = res.Replace("{structMemberCount}", node.structInfo.nodeInfoList.Count.ToString());
-            res = res.Replace("{LineElement}", structLineElement);
-            res = res.Replace("{ParserListMember}", memberParser.ToString());
+            res = res.Replace("{subElement}", structLineElement);
             res = res.Replace("{sourceList}", sourceListName);
             res = res.Replace("{listMembername}", listName);
             res = res.Replace("{index}", m_iIndex.ToString());
             res = res.Replace("{configName}", m_strConfigName);
-            res = res.Replace("{classname}", node.structInfo.name);
-            res.Append('\n');
+            res = res.Replace("{splitType}", ((int)node.type).ToString());
+            res = res.Replace("{listStructName}", m_strConfigName + "." + node.structInfo.name+"Class");
 
+            res = res.Replace("{ParserListMember}", memberParser.ToString());
+
+            res.Append('\n');
+            
             ++m_iIndex;
 
             return res.ToString();
         }
-       
     }
 }
 
