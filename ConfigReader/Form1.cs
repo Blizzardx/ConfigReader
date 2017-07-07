@@ -1,5 +1,5 @@
 ﻿using Common.Config;
-using ExcelImproter.Framework.ConfigImporter.CodeGenerator;
+using ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp;
 using ExcelImproter.Framework.ConfigImporter.Excel;
 using ExcelImproter.Framework.ConfigImporter.Excel.Editor;
 using System;
@@ -61,6 +61,11 @@ namespace ExcelImproter
             ConfigClassDefineGenerator tool = new ConfigClassDefineGenerator();
             var classFile = tool.GenClassDefine(tmpInfo.Name.Replace('.','_'), config);
             System.IO.File.WriteAllText(path.Replace(".xml", ".cs"), classFile);
+
+            ConfigParserGenerator parserTool = new ConfigParserGenerator();
+            var parserConfig = parserTool.GenParserClass(tmpInfo.Name.Replace('.', '_'), config);
+
+            System.IO.File.WriteAllText(path.Replace(".xml", "parser.cs"), parserConfig);
         }
         private string OpenFile()
         {
