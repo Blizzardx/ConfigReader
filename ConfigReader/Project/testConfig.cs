@@ -1,4 +1,4 @@
-	public class test_xmlConfig
+	public class testConfigConfig
 	{
 		public int id;
 

@@ -31,3 +31,4 @@ E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.
 E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.ListInfoPanel_Struct.resources
 E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.NodeInfoPanel.resources
 E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.StructInfoPanel.resources
+E:\Project\vsProject\GameTool-ConfigReader\ConfigReader\obj\Debug\ExcelImproter.Framework.ConfigImporter.Excel.Editor.View.GenCodeEditor.resources

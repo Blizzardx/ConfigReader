@@ -67,6 +67,12 @@
       <DependentUpon>ExcelConfigInfoEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Framework\ConfigImporter\Excel\Editor\Common\INodeEditorView.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\Editor\View\GenCodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\ConfigImporter\Excel\Editor\View\GenCodeEditor.Designer.cs">
+      <DependentUpon>GenCodeEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Framework\ConfigImporter\Excel\Editor\View\ListInfoPanel_Node.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,8 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Plugin\Xml\XmlConfigBase.cs" />
-    <Compile Include="Project\test.cs" />
-    <Compile Include="Project\testparser.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\Editor\SystemConst.cs" />
+    <Compile Include="Project\testConfig.cs" />
+    <Compile Include="Project\testConfigparser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Plugin\Thrift\Collections\TCollections.cs" />
     <Compile Include="Plugin\Thrift\Collections\THashSet.cs" />
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Framework\ConfigImporter\Excel\Editor\View\ExcelConfigInfoEditor.resx">
       <DependentUpon>ExcelConfigInfoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\ConfigImporter\Excel\Editor\View\GenCodeEditor.resx">
+      <DependentUpon>GenCodeEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Framework\ConfigImporter\Excel\Editor\View\ListInfoPanel_Node.resx">
       <DependentUpon>ListInfoPanel_Node.cs</DependentUpon>

@@ -2,6 +2,7 @@
 using ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp;
 using ExcelImproter.Framework.ConfigImporter.Excel;
 using ExcelImproter.Framework.ConfigImporter.Excel.Editor;
+using ExcelImproter.Framework.ConfigImporter.Excel.Editor.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -49,45 +50,17 @@ namespace ExcelImproter
 
         private void genCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var path = OpenFile();
-            if (string.IsNullOrEmpty(path))
+            FormCollection coll = Application.OpenForms;
+            foreach (Form form in coll)
             {
-                return;
+                if (form is GenCodeEditor)
+                {
+                    form.Focus();
+                    return;
+                }
             }
-            var content = System.IO.File.ReadAllText(path);
-            var config = XmlConfigBase.DeSerialize<ExcelConfigInfo>(content, getAllTypes().ToArray());
-
-            System.IO.FileInfo tmpInfo = new System.IO.FileInfo(path);
-            ConfigClassDefineGenerator tool = new ConfigClassDefineGenerator();
-            var classFile = tool.GenClassDefine(tmpInfo.Name.Replace('.','_'), config);
-            System.IO.File.WriteAllText(path.Replace(".xml", ".cs"), classFile);
-
-            ConfigParserGenerator parserTool = new ConfigParserGenerator();
-            var parserConfig = parserTool.GenParserClass(tmpInfo.Name.Replace('.', '_'), config);
-
-            System.IO.File.WriteAllText(path.Replace(".xml", "parser.cs"), parserConfig);
-        }
-        private string OpenFile()
-        {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = false;
-            fileDialog.Title = "请选择文件";
-            fileDialog.Filter = "所有文件(*.*)|*.*";
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
-                return fileDialog.FileName;
-            }
-            return null;
-        }
-        List<Type> getAllTypes()
-        {
-            List<Type> typelist = new List<Type>() { typeof(ExcelConfigInfo) };
-            var list = ReflectionManager.Instance.GetTypeByBase(typeof(NodeBase));
-            if (null != list)
-            {
-                typelist.AddRange(list);
-            }
-            return typelist;
+            GenCodeEditor aiForm = new GenCodeEditor();
+            aiForm.Show();
         }
     }
 }

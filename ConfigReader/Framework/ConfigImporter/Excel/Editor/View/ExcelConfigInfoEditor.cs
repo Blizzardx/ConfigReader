@@ -113,7 +113,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
             fileDialog.Title = "请选择文件";
-            fileDialog.Filter = "所有文件(*.*)|*.*";
+            fileDialog.Filter = "xml文件(*.xml)|*.xml";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 return fileDialog.FileName;
