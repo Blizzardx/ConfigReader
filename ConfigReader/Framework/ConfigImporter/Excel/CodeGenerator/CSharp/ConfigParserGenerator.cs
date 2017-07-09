@@ -20,11 +20,11 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         private string m_strLineElementMemberName;
         private int m_iIndex;
 
-        public string GenParserClass(string configName, ExcelConfigInfo source)
+        public void GenParserClass(string configName, ExcelConfigInfo source,string outputPath)
         {
             if (null == source || source.nodeInfoList == null || source.nodeInfoList.Count == 0)
             {
-                return null;
+                return;
             }
 
             InitTempate();
@@ -47,7 +47,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             res = res.Replace("{result}", "resultConfigTable" );
             res = res.Replace("{className}", m_strConfigName);
             res = res.Replace("{lineElement}", m_strLineElementMemberName);
-            return res.ToString();
+
+
+            File.WriteAllText(outputPath + m_strConfigName + "Parser.cs", res.ToString());
         }
         private void InitTempate()
         {

@@ -11,13 +11,13 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         private string m_strClassDefineTempate;
         private string m_strClassMemberDefineTemplate;
 
-        public string GenClassDefine(string configName, ExcelConfigInfo source)
+        public void GenClassDefine(string configName, ExcelConfigInfo source,string outputPath)
         {
             InitTempate();
 
             if (null == source || source.nodeInfoList == null || source.nodeInfoList.Count == 0)
             {
-                return null;
+                return;
             }
 
             var content = new StringBuilder();
@@ -32,7 +32,8 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
 
             res = res.Replace("{0}", configName + "Config");
             res = res.Replace("{1}", content.ToString());
-            return res.ToString();
+
+            File.WriteAllText(outputPath + configName + "Config" + ".cs",res.ToString());
         }
 
         private string GenClassDefine(NodeBase nodeBase)

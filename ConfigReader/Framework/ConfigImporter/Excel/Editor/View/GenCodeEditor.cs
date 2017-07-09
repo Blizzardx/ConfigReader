@@ -90,17 +90,12 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor.View
             {
                 outputDirectory = SystemConst.config.ParserOutputPath ;
             }
-            string dataName = configName + "Config";
-            string parsername = dataName + "parser";
 
             ConfigClassDefineGenerator tool = new ConfigClassDefineGenerator();
-            var classFile = tool.GenClassDefine(dataName, config);
-            System.IO.File.WriteAllText(outputDirectory + "/" + dataName + ".cs", classFile);
+            tool.GenClassDefine(configName, config, outputDirectory + "/");
 
             ConfigParserGenerator parserTool = new ConfigParserGenerator();
-            var parserConfig = parserTool.GenParserClass(dataName, config);
-
-            System.IO.File.WriteAllText(outputDirectory + "/" + parsername + ".cs", parserConfig);
+            parserTool.GenParserClass(configName, config, outputDirectory + "/");            
         }
         private string OpenFile()
         {
