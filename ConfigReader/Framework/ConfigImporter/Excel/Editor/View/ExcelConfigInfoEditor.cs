@@ -21,6 +21,7 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
         private INodeEditorView m_CurrentNodeEditor;
         private PanelState m_PanelState;
         private bool m_bIsAddingRoot;
+        private string m_strCurrentEditFilePath;
 
         private ExcelConfigInfo m_Data;
         private string[] m_NodeTypeList = new string[]
@@ -91,12 +92,13 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             {
                 return;
             }
-            var savePath = SaveFile();
+            var savePath = string.IsNullOrEmpty(m_strCurrentEditFilePath) ? SaveFile() : m_strCurrentEditFilePath;
             if(string.IsNullOrEmpty(savePath))
             {
                 return;
             }
             System.IO.File.WriteAllText(savePath, configContent);
+            LogQueue.Instance.Enqueue("saved!");
         }
         private string SaveFile()
         {
@@ -147,6 +149,10 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             }
 
             treeView.ExpandAll();
+
+            m_strCurrentEditFilePath = path;
+
+            LogQueue.Instance.Enqueue("loaded!");
         }
         private void GetNodeViewByNodeInfo(TreeNodeCollection rootView, NodeBase nodeBase)
         {
