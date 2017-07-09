@@ -95,7 +95,9 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor.View
             tool.GenClassDefine(configName, config, outputDirectory + "/");
 
             ConfigParserGenerator parserTool = new ConfigParserGenerator();
-            parserTool.GenParserClass(configName, config, outputDirectory + "/");            
+            parserTool.GenParserClass(configName, config, outputDirectory + "/");
+
+            LogQueue.Instance.Enqueue("Generate Done " + configName);  
         }
         private string OpenFile()
         {

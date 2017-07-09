@@ -16,7 +16,7 @@ public class {ConfigName}Parser
         {
             {result}.Add(ParserLine(i, content[i]));
 
-            if (string.IsNullOrEmpty(m_strErrorMsg))
+            if (!string.IsNullOrEmpty(m_strErrorMsg))
             {
                 return null;
             }

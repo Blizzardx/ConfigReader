@@ -28,7 +28,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             }
 
             InitTempate();
-            m_strConfigName = configName + "Config";
+            m_strConfigName = configName ;
             m_strLineElementMemberName = "configLineElement";
             m_iIndex = 0;
 
@@ -128,7 +128,8 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         private string GenParserClass_NodeLlist(ConfigNodeListInfo node)
         {
             string sourceListName = node.nodeInfo.name + "SourceList";
-            string listName = node.nodeInfo.name + "List";
+            string listName = m_strLineElementMemberName + "." + node.nodeInfo.name;
+            string tmpListElement = node.nodeInfo.name + "TmpList";
 
             StringBuilder memberParser = new StringBuilder(m_strParserListNodeMemberTemplate);
             string rangeMin = node.nodeInfo.rangeMin;
@@ -159,9 +160,10 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             res = res.Replace("{index}", m_iIndex.ToString());
             res = res.Replace("{configName}", m_strConfigName);
             res = res.Replace("{listStructName}", CommonTool.GetType(node.nodeInfo.type));
-            res = res.Replace("{splitType}", ((int)node.type).ToString());
+            res = res.Replace("{splitType}", ((int)node.type).ToString()); 
+            res = res.Replace("{tmplistMembername}", tmpListElement); 
 
-            res = res.Replace("{ParserListMember}", memberParser.ToString());
+             res = res.Replace("{ParserListMember}", memberParser.ToString());
             res.Append('\n');
 
             ++m_iIndex;
@@ -171,8 +173,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         private string GenParserClass_StructList(ConfigStructListInfo node)
         {
             string sourceListName = node.structInfo.name + "SourceList";
-            string listName = node.structInfo.name + "List";
+            string listName = m_strLineElementMemberName + "." + node.structInfo.name;
             string structLineElement = node.structInfo.name + "Element";
+            string tmpListElement = node.structInfo.name + "TmpList";
 
             StringBuilder memberParser = new StringBuilder();
             for (int i = 0; i < node.structInfo.nodeInfoList.Count; ++i)
@@ -198,6 +201,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 lineElement = lineElement.Replace("{configName}", m_strConfigName);
                 lineElement = lineElement.Replace("{classname}", CommonTool.GetType(tmpNode.type));
                 lineElement = lineElement.Replace("{desc}", tmpNode.desc);
+                lineElement = lineElement.Replace("{sourceList}", sourceListName);
 
                 lineElement = lineElement.Replace("{membername}", structLineElement + "." + tmpNode.name);
                 lineElement.Append('\n');
@@ -215,6 +219,7 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             res = res.Replace("{configName}", m_strConfigName);
             res = res.Replace("{splitType}", ((int)node.type).ToString());
             res = res.Replace("{listStructName}", m_strConfigName + "." + node.structInfo.name+"Class");
+            res = res.Replace("{tmplistMembername}", tmpListElement);
 
             res = res.Replace("{ParserListMember}", memberParser.ToString());
 

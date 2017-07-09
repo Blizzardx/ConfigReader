@@ -30,10 +30,10 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
 
             var res = new StringBuilder(m_strClassDefineTempate);
 
-            res = res.Replace("{0}", configName + "Config");
+            res = res.Replace("{0}", configName);
             res = res.Replace("{1}", content.ToString());
 
-            File.WriteAllText(outputPath + configName + "Config" + ".cs",res.ToString());
+            File.WriteAllText(outputPath + configName + ".cs",res.ToString());
         }
 
         private string GenClassDefine(NodeBase nodeBase)
