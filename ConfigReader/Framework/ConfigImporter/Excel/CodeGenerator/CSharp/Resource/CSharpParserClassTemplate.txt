@@ -1,5 +1,6 @@
 ﻿using Util;
 using System.Collections.Generic;
+using System;
 
 public class {ConfigName}Parser
 {
@@ -34,4 +35,5 @@ public class {ConfigName}Parser
 
 		return {lineElement};
     }
+{ConfigChecker}
 }

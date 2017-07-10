@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Framework\Common\FileUtils.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\CommonTool.cs" />
+    <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\ConfigCheckGenerator.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\ConfigClassDefineGenerator.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\ConfigParserGenerator.cs" />
     <Compile Include="Framework\ConfigImporter\Excel\Common\ExcelConfigInfo.cs" />
@@ -198,6 +199,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpCheckConfigListStructMemberTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpCheckConfigListStructTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpCheckConfigNodeMemberTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpCheckConfigListNodeTemplate.txt" />
+    <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpCheckConfigTemplate.txt" />
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpClassDefineTemplate.txt" />
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpClassMemberDefineTemplate.txt" />
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserClassTemplate.txt" />
@@ -206,7 +212,7 @@
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListNodeMemberTemplate.txt" />
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserListStructMemberTemplate.txt" />
     <Content Include="Framework\ConfigImporter\Excel\CodeGenerator\CSharp\Resource\CSharpParserNodeMemberTemplate.txt" />
-    <Content Include="Project\test.xml" />
+    <Content Include="Project\testConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

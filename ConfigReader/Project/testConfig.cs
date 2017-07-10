@@ -1,4 +1,4 @@
-	public class testConfigConfig
+	public class testConfig
 	{
 		public int id;
 

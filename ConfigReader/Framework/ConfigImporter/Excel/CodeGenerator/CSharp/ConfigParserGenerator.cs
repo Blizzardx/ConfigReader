@@ -20,6 +20,8 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
         private string m_strLineElementMemberName;
         private int m_iIndex;
 
+        private ConfigCheckGenerator m_ConfigCheckGen;
+
         public void GenParserClass(string configName, ExcelConfigInfo source,string outputPath)
         {
             if (null == source || source.nodeInfoList == null || source.nodeInfoList.Count == 0)
@@ -48,6 +50,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             res = res.Replace("{className}", m_strConfigName);
             res = res.Replace("{lineElement}", m_strLineElementMemberName);
 
+            m_ConfigCheckGen = new ConfigCheckGenerator();
+            var checkContent = m_ConfigCheckGen.GenCheckerConfig(source);
+            res = res.Replace("{ConfigChecker}", checkContent);
 
             File.WriteAllText(outputPath + m_strConfigName + "Parser.cs", res.ToString());
         }
@@ -95,6 +100,8 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             }
             StringBuilder res = new StringBuilder(m_strParserMemberTemplate);
 
+            res = res.Replace("{refrenceConfigName}", node.refrenceConfigName);
+            res = res.Replace("{refrenceConfigId}", node.refrenceConfigId.ToString());
             res = res.Replace("{membername}", rootMemberName + "." + node.name);
             res = res.Replace("{index}", m_iIndex.ToString());
             res = res.Replace("{min}", rangeMin);
@@ -143,12 +150,15 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             {
                 rangeMax = CommonTool.GetMaxRangeByDataType(node.nodeInfo.type);
             }
+            memberParser = memberParser.Replace("{refrenceConfigName}", node.nodeInfo.refrenceConfigName);
+            memberParser = memberParser.Replace("{refrenceConfigId}", node.nodeInfo.refrenceConfigId.ToString());
             memberParser = memberParser.Replace("{sourceList}", sourceListName);
             memberParser = memberParser.Replace("{min}", rangeMin);
             memberParser = memberParser.Replace("{max}", rangeMax);
             memberParser = memberParser.Replace("{configName}", m_strConfigName);
             memberParser = memberParser.Replace("{classname}", CommonTool.GetType(node.nodeInfo.type));
             memberParser = memberParser.Replace("{desc}", node.nodeInfo.desc);
+
             memberParser.Append('\n');
 
 
@@ -195,6 +205,8 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 }
 
                 StringBuilder lineElement = new StringBuilder(m_strParserListStructMemberTemplate);
+                lineElement = lineElement.Replace("{refrenceConfigName}", tmpNode.refrenceConfigName);
+                lineElement = lineElement.Replace("{refrenceConfigId}", tmpNode.refrenceConfigId.ToString());
                 lineElement = lineElement.Replace("{index}", i.ToString());
                 lineElement = lineElement.Replace("{min}", rangeMin);
                 lineElement = lineElement.Replace("{max}", rangeMax);
