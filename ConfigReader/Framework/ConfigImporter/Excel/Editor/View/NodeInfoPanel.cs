@@ -47,6 +47,8 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
             textBoxMax.Text = m_Data.rangeMax;
             textBoxRefConfigId.Text = m_Data.refrenceConfigId.ToString();
             textBoxRefConfigName.Text = m_Data.refrenceConfigName;
+            checkBoxIsAllowDefaultValue.Checked = m_Data.isAllowDefaultValue;
+            textBoxDefaultValue.Text = m_Data.defaultValue;
         }
         public string CheckData()
         {
@@ -79,7 +81,15 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel.Editor
                 m_Data.refrenceConfigName = null;
                 m_Data.refrenceConfigId = 0;
             }
-            
+            m_Data.isAllowDefaultValue = checkBoxIsAllowDefaultValue.Checked;
+            if (m_Data.isAllowDefaultValue)
+            {
+                m_Data.defaultValue = textBoxDefaultValue.Text;
+            }
+            else
+            {
+                m_Data.defaultValue = string.Empty;
+            }
             return null;
         }
         public NodeBase GetData()

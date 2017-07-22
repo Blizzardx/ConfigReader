@@ -46,6 +46,9 @@
             this.labelParamType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxIsAllowDefaultValue = new System.Windows.Forms.CheckBox();
+            this.textBoxDefaultValue = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label11
@@ -195,10 +198,39 @@
             this.label2.TabIndex = 85;
             this.label2.Text = "检索信息";
             // 
+            // checkBoxIsAllowDefaultValue
+            // 
+            this.checkBoxIsAllowDefaultValue.AutoSize = true;
+            this.checkBoxIsAllowDefaultValue.Location = new System.Drawing.Point(45, 314);
+            this.checkBoxIsAllowDefaultValue.Name = "checkBoxIsAllowDefaultValue";
+            this.checkBoxIsAllowDefaultValue.Size = new System.Drawing.Size(108, 16);
+            this.checkBoxIsAllowDefaultValue.TabIndex = 86;
+            this.checkBoxIsAllowDefaultValue.Text = "是否允许默认值";
+            this.checkBoxIsAllowDefaultValue.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDefaultValue
+            // 
+            this.textBoxDefaultValue.Location = new System.Drawing.Point(223, 308);
+            this.textBoxDefaultValue.Name = "textBoxDefaultValue";
+            this.textBoxDefaultValue.Size = new System.Drawing.Size(237, 21);
+            this.textBoxDefaultValue.TabIndex = 87;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(176, 314);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 88;
+            this.label3.Text = "默认值";
+            // 
             // NodeInfoPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxDefaultValue);
+            this.Controls.Add(this.checkBoxIsAllowDefaultValue);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
@@ -245,5 +277,8 @@
         private System.Windows.Forms.Label labelParamType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxIsAllowDefaultValue;
+        private System.Windows.Forms.TextBox textBoxDefaultValue;
+        private System.Windows.Forms.Label label3;
     }
 }

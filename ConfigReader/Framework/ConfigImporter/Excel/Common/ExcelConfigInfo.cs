@@ -42,6 +42,10 @@ namespace ExcelImproter.Framework.ConfigImporter.Excel
         public string refrenceConfigName;
         [XmlAttribute("refrenceConfigId")]
         public int refrenceConfigId;
+        [XmlAttribute("defaultValue")]
+        public string defaultValue;
+        [XmlAttribute("isAllowDefaultValue")]
+        public bool isAllowDefaultValue;
     }
     #endregion
 

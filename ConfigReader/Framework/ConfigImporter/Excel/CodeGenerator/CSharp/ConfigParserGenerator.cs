@@ -102,6 +102,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
 
             res = res.Replace("{refrenceConfigName}", node.refrenceConfigName);
             res = res.Replace("{refrenceConfigId}", node.refrenceConfigId.ToString());
+            res = res.Replace("{isAllowDefaultValue}", CommonTool.GetBoolDataType(node.isAllowDefaultValue));
+            res = res.Replace("{defaultValue}", node.defaultValue);
+
             res = res.Replace("{membername}", rootMemberName + "." + node.name);
             res = res.Replace("{index}", m_iIndex.ToString());
             res = res.Replace("{min}", rangeMin);
@@ -152,6 +155,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             }
             memberParser = memberParser.Replace("{refrenceConfigName}", node.nodeInfo.refrenceConfigName);
             memberParser = memberParser.Replace("{refrenceConfigId}", node.nodeInfo.refrenceConfigId.ToString());
+            memberParser = memberParser.Replace("{isAllowDefaultValue}", CommonTool.GetBoolDataType(node.nodeInfo.isAllowDefaultValue));
+            memberParser = memberParser.Replace("{defaultValue}", node.nodeInfo.defaultValue);
+
             memberParser = memberParser.Replace("{sourceList}", sourceListName);
             memberParser = memberParser.Replace("{min}", rangeMin);
             memberParser = memberParser.Replace("{max}", rangeMax);
@@ -207,6 +213,9 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
                 StringBuilder lineElement = new StringBuilder(m_strParserListStructMemberTemplate);
                 lineElement = lineElement.Replace("{refrenceConfigName}", tmpNode.refrenceConfigName);
                 lineElement = lineElement.Replace("{refrenceConfigId}", tmpNode.refrenceConfigId.ToString());
+                lineElement = lineElement.Replace("{isAllowDefaultValue}", CommonTool.GetBoolDataType(tmpNode.isAllowDefaultValue));
+                lineElement = lineElement.Replace("{defaultValue}", tmpNode.defaultValue);
+
                 lineElement = lineElement.Replace("{index}", i.ToString());
                 lineElement = lineElement.Replace("{min}", rangeMin);
                 lineElement = lineElement.Replace("{max}", rangeMax);

@@ -71,5 +71,13 @@ namespace ExcelImproter.Framework.ConfigImporter.CodeGenerator.CSharp
             }
             return null;
         }
+        public static string GetBoolDataType(bool value)
+        {
+           if(value)
+            {
+                return "true";
+            }
+            return "false";
+        }
     }
 }

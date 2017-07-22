@@ -4,7 +4,8 @@
 					return null;
 				}
 							
-				if (!VaildUtil.CheckRefrenceConfig("{refrenceConfigName}", {refrenceConfigId} , {sourceList}[{index} + startIndex]))
+				if (!VaildUtil.CheckIsDefaultValue({isAllowDefaultValue}, {sourceList}[{index} + startIndex] ,"{defaultValue}") && 
+				!VaildUtil.CheckRefrenceConfig("{refrenceConfigName}", {refrenceConfigId} , {sourceList}[{index} + startIndex]))
 				{
 						m_strErrorMsg = string.Format("{5} {0}.xlsx [{1},{2}]读取出现错误，{3}在{4}中没找到", "{configName}", lineIndex,{index}+1, {sourceList}[{index} + startIndex],"{refrenceConfigName}","{desc}");
 						return null;
